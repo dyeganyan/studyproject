@@ -1,5 +1,12 @@
 <x-app-layout>
     <x-slot name="header">
+        <div>
+            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                <img src="/avatars/{{ Auth::user()->avatar }}" style="width: 90px; border-radius: 50%">
+                {{ Auth::user()->name }}
+            </a>
+
+        </div>
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
            Name: {{ Auth::user()->name }}
         </h2>
@@ -14,10 +21,7 @@
     </x-slot>
 
 
-    <div>
-    <img src="{{ url('storage/images/') }}" alt="" title="" />
 
-    </div>
 </x-app-layout>
 
 

@@ -20,7 +20,19 @@ public function show()
     {
         $this->middleware('auth');
     }
+    public function store(Request $request)
+    {
+        $request->validate([
+            'avatar' => 'required|image',
+        ]);
 
+        $avatarName = time().'.'.$request->avatar->getClientOriginalExtension();
+        $request->avatar->move(public_path('avatars'), $avatarName);
+
+        Auth()->user()->update(['avatar'=>$avatarName]);
+
+        return back()->with('success', 'Avatar updated successfully.');
+    }
     public function edit(User $user)
     {
         $user = Auth::user();

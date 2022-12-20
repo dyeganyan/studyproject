@@ -28,6 +28,7 @@ Route::get('/', function () {
 
 Route::get('/dashboard', [DashboardController::class, 'show'])->middleware(['auth'])->name('dashboard');
 Route::get('/profile', [UserProfileController::class, 'show'])->middleware(['auth'])->name('profile');
+Route::post('/profile', [App\Http\Controllers\UserProfileController::class, 'store'])->name('user.profile.store');
 require __DIR__.'/auth.php';
 
 Route::get('/edit',  [UserProfileController::class, 'edit'])->middleware(['auth'])->name('edit');

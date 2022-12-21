@@ -70,9 +70,10 @@ class ImageController extends Controller
             $image->move(public_path('images'), $imageName);
                 $images->image=$imageName;
                 $images->user_id=Auth::user()->id;
+            $images->post_id=5;
             $images->save();
 
-            return view('profile/profile');
+            return view('profile.profile');
 
         }
 

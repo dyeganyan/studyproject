@@ -31,20 +31,7 @@
                 </form>
 
         </div>
-        <form method="post" action="{{url('/upload')}}" enctype="multipart/form-data">
-            @csrf
-            <div class="mt-4">
 
-                <div class="mt-4">
-                    <x-input type="file" name="image" class="form-control" />
-                </div>
-
-                <div class="mt-4">
-                    <x-button class=" text-sm text-gray-600 hover:text-gray-900" type="submit">Upload</x-button>
-                </div>
-
-            </div>
-        </form>
         <div class="card-body">
             <form method="POST" action="{{ route('user.profile.store') }}" enctype="multipart/form-data">
                 @csrf

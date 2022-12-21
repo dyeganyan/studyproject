@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\Auth;
 class DashboardController extends Controller
 {
     public function show() {
-        $images = Auth::user()->images;
-        return View('dashboard')->with('images', $images);
+        ;
+        return View('dashboard');
     }
 
 

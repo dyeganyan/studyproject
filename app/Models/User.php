@@ -66,8 +66,9 @@ class User extends Authenticatable
             }
         });
     }
-    public function images()
+
+    public function posts()
     {
-        return $this->hasMany(Image::class);
+        return $this->hasMany(Post::class);
     }
 }

@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\ImageUploadController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserProfileController;
 /*
@@ -44,3 +45,9 @@ Route::get('account/verify/{token}', [AuthController::class, 'verifyAccount'])->
 
 
 Route::post('/upload', [ImageController::class, 'upload']);
+
+
+//Posts
+
+Route::get('add-blog-post-form', [PostController::class, 'index']);
+Route::post('store-form', [PostController::class, 'store']);

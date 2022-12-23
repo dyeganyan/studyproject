@@ -1,5 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
+        <x-auth-card>
         <div>
             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                 <img src="/avatars/{{ Auth::user()->avatar }}" style="width: 90px; border-radius: 50%">
@@ -18,7 +19,7 @@
            Created At: {{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', Auth::user()->created_at)->format('d.m.Y') }}
         </h2>
         <x-dropdown-link href="{{ 'edit'}}">Edit</x-dropdown-link>
-    </x-slot>
+
 
 
     <div class="container mt-4">
@@ -66,8 +67,8 @@
             </div>
         </div>
     </div>
-
-
+            </x-auth-card>
+    </x-slot>
 </x-app-layout>
 
 

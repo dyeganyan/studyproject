@@ -13,7 +13,10 @@ class PostController extends Controller
 {
     public function index()
     {
-        return view('profile');
+        $images=Post::all()->images();
+        $posts = Auth::user()->posts;
+        return view('/dashboard')->with('posts', $posts)
+            ->with('images', $images);
     }
 
     // create separate request (PostRequest) class to validate input !!
@@ -29,10 +32,12 @@ class PostController extends Controller
             "description" => $request->description,
             "user_id" => $user,
         ]);
-
-        $post->images()->create([
-            "image" => time().'.'.$request->image->extension(),
+        $image = $request->image;
+         $post->images()->create([
+            "image" => time().'.'.$image->extension(),
         ]);
+        $imageName = time().'.'.$image->extension();
+        $image->move(public_path('images'), $imageName);
 
 
 
@@ -62,7 +67,7 @@ class PostController extends Controller
 //        $image->move(public_path('images'), $image->iamge);
 //        $image->save();
 
-        return redirect('profile')->with('status', 'Blog Post Form Data Has Been inserted');
+        return redirect('dashboard')->with('status', 'Blog Post Form Data Has Been inserted');
     }
 
 }

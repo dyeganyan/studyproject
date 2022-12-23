@@ -1,7 +1,8 @@
 @if($message =Session::get('success'))
     <span>{{ $message }}</span>
 @endif
-<x-guest-layout>
+<x-app-layout>
+    <x-slot name="header">
     <x-auth-card>
         <div class="mt-4 flex items-center justify-between">
            <form method="post" action="{{route('users.update', $user->id)}}">
@@ -69,5 +70,6 @@
         </div>
 
     </x-auth-card>
-    </x-guest-layout>
+    </x-slot>
+</x-app-layout>
 </form>

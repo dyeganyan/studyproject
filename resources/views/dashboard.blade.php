@@ -12,7 +12,7 @@
                 <ul>
 
                     @foreach($posts as $post)
-                        <x-auth-card style="min-height:1vh">
+                        <x-auth-card>
                         <li>
                             <h2 style="text-transform: uppercase" class="font-semibold text-xl text-gray-800 leading-tight">{{ $post['title'] }}</h2>
                             </br>

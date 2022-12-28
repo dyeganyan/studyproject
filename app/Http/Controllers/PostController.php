@@ -45,7 +45,7 @@ class PostController extends Controller
 
 
 
-//        $post = new Post;
+//        $post = new post;
 //        $post->title = $request->title;
 //        $post->description = $request->description;
 //        $post->user_id = Auth::user()->id;
@@ -58,7 +58,7 @@ class PostController extends Controller
 //       ]);
 //        $imageName = time().'.'.$request->image->extension();
 //
-//        $image = Post::create([
+//        $image = post::create([
 //
 //            "image" => time() . '.' . $imageName,
 //            "user_id" => Auth::user()->id,
@@ -67,7 +67,7 @@ class PostController extends Controller
 //        $image->move(public_path('images'), $image->iamge);
 //        $image->save();
 
-        return redirect('dashboard')->with('status', 'Blog Post Form Data Has Been inserted');
+        return redirect('dashboard')->with('status', 'Blog post Form Data Has Been inserted');
     }
 
 }

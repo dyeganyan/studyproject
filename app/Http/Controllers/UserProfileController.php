@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Image;
+use App\Models\Post;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -14,7 +16,13 @@ class UserProfileController extends Controller
 public function show()
 {
     $userinfo = \auth()->user();
-    return view('profile.profile');
+    $images=Image::all();
+    $posts = Auth::user()->posts;
+
+    return view('profile.profile')->with('posts', $posts)
+        ->with('images', $images)
+        ->with('userinfo',$userinfo);
+
 }
     public function __construct()
     {

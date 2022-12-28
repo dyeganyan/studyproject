@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Image;
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -11,9 +12,12 @@ class DashboardController extends Controller
 {
     public function show() {
         $images = Image::all();
-        $posts = Auth::user()->posts;
+        $users = User::all()->except(Auth::id());
+        $posts = Post::all();
+
         return view('/dashboard')->with('posts', $posts)
-            ->with('images', $images);
+            ->with('images', $images)
+            ->with('users', $users);
     }
 
 

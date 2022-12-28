@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\ImageUploadController;
@@ -56,3 +57,8 @@ Route::post('/upload', [ImageController::class, 'upload']);
 
 Route::get('add-blog-post-form', [PostController::class, 'index']);
 Route::post('store-form', [PostController::class, 'store']);
+
+//Comments
+
+
+Route::post('comments', [CommentController::class, 'store'])->name('comments.store');

@@ -30,13 +30,15 @@
                                 @endforeach
                             </ul>
                             <hr />
+                                <details>
+                                    <summary>
                                 <button data-toggle="collapse" data-target="#demo">
-                            <h2 style="text-transform: uppercase" class="font-semibold text-xl text-gray-800 leading-tight">Comments<svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                </svg></h2>
-                                </button>
 
-                                <div id="demo" class="collapse">
+
+                            <h2 style="text-transform: uppercase" class="font-semibold text-xl text-gray-800 leading-tight">Comments</h2>
+                                </button>
+                                </summary>
+                                <div >
                             <hr />
                             @include('post.commentsDisplay', ['comments' => $post->comments, 'post_id' => $post->id])
 
@@ -51,6 +53,7 @@
                                 </div>
                             </form>
                                 </div>
+                                </details>
 
                         </li>
                         </x-auth-card>
